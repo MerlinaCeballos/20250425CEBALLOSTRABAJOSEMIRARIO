@@ -1,0 +1,117 @@
+\documentclass[oneside,onecolumn,openany,final]{book}
+
+% Deben cargarse temprano para parches de macros
+\usepackage{etoolbox}
+\usepackage{ifthen}
+\usepackage{xparse}
+
+% Soporte para fuentes OpenType
+\usepackage{fontspec}
+
+\usepackage{polyglossia}
+\setmainlanguage{spanish}
+\usepackage{csquotes}
+
+% paquetes varios
+\usepackage{calc}
+\usepackage{nccfoots}
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage[final]{pdfpages}
+\usepackage{caption}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{bchart}
+\usepackage[most]{tcolorbox}
+
+% diseño de listas (opcion 1) con paralist
+\usepackage{paralist}
+\setdefaultenum{1)}{a)}{i)}{}
+\pltopsep=0.5mm
+\plitemsep=0mm
+
+% diseño de listas (opcion 2) con enumitem
+\usepackage{enumitem}
+\setlist{nosep,topsep=4pt}
+
+% manejo de índices
+\usepackage{imakeidx}
+\makeindex[name=names,title=Índice de autores]
+\makeindex
+\makeindex[name=foo,title=Índice de conceptos]
+\makeindex[name=foo3,title=Índice onomástico]
+
+% manejo de glosarios
+\usepackage[acronym,sanitizesort]{glossaries}
+\makenoidxglossaries
+
+% volcamos las notas como capítulo separado
+\usepackage{endnotes,chngcntr}
+\def\notesname{Notas}
+\let\footnote=\endnote
+\makeatletter
+\renewcommand\enoteheading{%
+    \setcounter{secnumdepth}{-2}
+    \chapter*{\notesname\markboth{}{}}
+    \mbox{}\par\vskip-\baselineskip
+    \let\@afterindentfalse\@afterindenttrue
+}
+\makeatother
+\let\latexchapter\chapter
+\RenewDocumentCommand{\chapter}{som}{%
+    \IfBooleanTF{#1}
+    {\latexchapter*{#3}}
+    {\IfNoValueTF{#2}
+        {\latexchapter{#3}}
+        {\latexchapter[#2]{#3}}%
+        \addtoendnotes{%
+            \noexpand\enotedivision{\noexpand\subsection}
+            {\thechapter \, \unexpanded{#3}}}% \chaptername\
+    }%
+}
+\makeatletter
+\def\enotedivision#1#2{\@ifnextchar\enotedivision{}{#1{#2}}}
+\makeatletter
+
+% elegimos el estandar para las referencias
+\def\estandar{veronaC}
+%\def\estandar{veronaM}
+%\def\estandar{VerboseIbid}
+%\def\estandar{APA}
+%\def\estandar{ISO690}
+%\def\estandar{numeric}
+%\def\estandar{custom}
+\input{./files/biblatex-\estandar-config.tex}
+
+% configuración de los valores decimales de los cuadros
+\usepackage{siunitx}
+\sisetup{output-decimal-marker={.},
+	group-separator={\hspace{0.15em}},
+	group-minimum-digits=3,
+	table-text-alignment=center,
+	detect-all,
+	per-mode=fraction}
+
+% aseguramos igualdad al valor de la raya del medio
+\newcommand{\rdm}[1]{--#1--}
+\newcommand{\rdmq}[2]{--#1--\penalty10000 #2}
+
+% función para generar una raya de unión de palabras que habilita el corte de palabra
+% se usa entre llaves {\rdc}
+\makeatletter
+\def\thinskip{\hskip 0.01em\relax}
+\def\rdc{\thinskip--\thinskip}
+\makeatother
+
+% condicionales para los formatos de salida
+\newif\ifPDF
+\newif\ifBNPDF
+\newif\ifPNGEPUB
+\newif\ifHTMLEPUB
+\newif\ifHTML
+\newif\ifXML
+
+% fin del archivo de configuración
