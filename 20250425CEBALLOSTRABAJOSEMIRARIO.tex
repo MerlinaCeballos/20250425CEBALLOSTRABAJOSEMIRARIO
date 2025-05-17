@@ -1,62 +1,40 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
-%
-\documentclass[
-]{article}
-\usepackage{amsmath,amssymb}
-\usepackage{iftex}
-\ifPDFTeX
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-  \usepackage{unicode-math} % this also loads fontspec
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-\fi
-\usepackage{lmodern}
-\ifPDFTeX\else
-  % xetex/luatex font selection
-\fi
-% Use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same}
-\hypersetup{
-  pdfauthor={Alberto},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
+% referencias
+\addbibresource{./files/gbTeXbib-20250425CEBALLOSTRABAJOSEMIRARIO.bib}
 
-\author{Alberto}
-\date{}
+% glosarios
+\input{./files/gbTeXglo-20250425CEBALLOSTRABAJOSEMIRARIO.tex}
+
+\ifPDF
+% separata de capítulos solo en pdf de pantalla
+\input{./files/gbTeXseparata-20250425CEBALLOSTRABAJOSEMIRARIO.tex}
+% control de inconsistencias de principio y fin de linea
+\usepackage[hyphenation,homeoarchy,homeoarchywordcolor=orange, homeoarchycharcolor=orange,draft]{impnattypo}
+\usepackage[allcolors=magenta, colorlinks, unicode]{hyperref}
+\usepackage{easyReview}
+\usepackage{hyperxmp}
+\input{./files/gbTeXmeta-20250425CEBALLOSTRABAJOSEMIRARIO.tex}
+	\else
+	\ifBNPDF
+	\usepackage[width=18truecm,height=25.5truecm,cam,center]{crop}
+	\newcommand*\infofont[1]{\sf{\footnotesize #1 (alberto.alejandro.moyano@gmail.com)}}
+	\crop[font=infofont]
+	\usepackage[hidelinks, unicode]{hyperref}
+	\usepackage{hyperxmp}
+	\input{./files/gbTeXmeta-20250425CEBALLOSTRABAJOSEMIRARIO.tex}
+		\else
+		\ifPNGEPUB
+		\usepackage[hidelinks, unicode]{hyperref}
+			\else
+			\ifHTMLEPUB
+			\usepackage[allcolors=blue,colorlinks,hyperindex=true,unicode]{hyperref}
+			\fi
+		\fi
+	\fi
+\fi
 
 \begin{document}
 
-\textbf{Ontologías Políticas}
+\section{Ontologías Políticas}
 
 Gala Aznarez Carini
 
@@ -114,7 +92,7 @@ Ontología nodal
 
 Roque Farrán
 
-\textbf{Presentación}
+\chapter{Presentación}
 
 Si muchas veces el trabajo intelectual parece darse en soledad, en el caso de este libro se trata de un pensar conjunto. A lo largo del tiempo hemos puesto en común nuestros trabajos individuales, los hemos sometido a discusión, hemos discrepado, compartido lecturas, y así, hemos tratado de escucharnos. De modo que este texto surge de un ejercicio colectivo de pensamiento nucleado en torno al «Programa de Estudios en Teoría Política» radicado en el Centro de Investigaciones y Estudios sobre la Cultura y la Sociedad (CIECS) de la Universidad Nacional de Córdoba y el Consejo Nacional de Investigaciones Científicas y Técnicas.
 
@@ -122,7 +100,7 @@ Desde el pensar en común han surgido escritos singulares, diversos, plurales, q
 
 Publicamos para seguir la conversación infinita en la que estamos.
 
-\textbf{¿Por qué ontologías políticas?}
+\chapter{¿Por qué ontologías políticas?}
 
 1.
 
@@ -186,21 +164,17 @@ Nuestra apuesta teórica, nuestra apuesta política: preguntar para abrir lo pos
 
 Gala Aznarez Carini, Emmanuel Biset, Andrés Daín, Roque Farrán, Daniel Groisman, Manuel Moyano, Juan Manuel Reynares, Aurora Romero, Mercedes Vargas.
 
-\textbf{Ontología de la diferencia}
+\chapter{Ontología de la diferencia}
 
 Emmanuel Biset
 
+\begin{quote}
 La diferencia entre Deleuze y Derrida como diferencia propia --y en consecuencia, como identidad en sí dividida-- de un tiempo, de un presente de pensamiento que habrá formado una inflexión decisiva, sigue estando por pensar.
 
 Jean-Luc Nancy
+\end{quote}
 
-Pá
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \textbf{Introducción}
-\end{enumerate}
+\section{1. Introducción}
 
 Existen ciertos conceptos y no otros que marcan determinada época. Conceptos que al mismo tiempo que constituyen un índice del tiempo vivido intervienen en él. Uno de esos conceptos es el de «diferencia», concepto que se ha constituido como un indicio central para pensar el mundo contemporáneo en, por lo menos, dos sentidos. De un lado, el término diferencia ha servido para designar toda una corriente del pensamiento contemporáneo: aquello que se ha denominado «filosofía de la diferencia». De otro lado, el término diferencia en un sentido político viene a designar una época en la cual se han pluralizado las formas de vida y la alteridad se ha convertido en un problema ineludible. Un pensamiento de la diferencia en política parece remitir a la pluralidad expandida del mundo contemporáneo y así a las discusiones sobre multiculturalismo, interculturalidad, etc., y al problema de la alteridad radical, y así a las discusiones sobre migrantes, sexualidades, pueblos originarios, etc.
 
@@ -214,35 +188,27 @@ En un tercer momento, se muestra el carácter político de una ontología de la 
 
 En resumidas cuentas, efectuamos un recorrido singular para mostrar el carácter político de la diferencia. Lo cual nos permite dar cuenta de una particular vinculación teórica entre ontología y política.
 
-Pá
+\section{2. Dialéctica y diferencia}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \textbf{Dialéctica y diferencia}
-\end{enumerate}
+Al comenzar \emph{Diferencia y repetición}, Gilles Deleuze escribe sobre el contexto en que surge el problema de la diferencia:
 
-SangríAl comenzar \emph{Diferencia y repetición}, Gilles Deleuze escribe sobre el contexto en que surge el problema de la diferencia:
+\begin{quote}
+El tema aquí tratado se encuentra, sin duda alguna, en la atmósfera de nuestro tiempo. Sus signos pueden ser detectados: la orientación cada vez más acentuada de Heidegger hacia una filosofía de la Diferencia ontológica; el ejercicio del estructuralismo, basado en una distribución de caracteres diferenciales en un espacio de coexistencia; el arte de la novela contemporánea, que gira en torno de la diferencia y de la repetición, no sólo en su reflexión más abstracta sino también en sus técnicas efectivas; el descubrimiento, en toda clase de campos, de un poder propio de repetición, que sería tanto la del inconsciente como la del lenguaje y del arte. Todos estos signos pueden ser atribuidos a un anti-hegelianismo generalizado: la diferencia y la repetición ocuparon el lugar de lo idéntico y de lo negativo, de la identidad y de la contradicción.
+\end{quote}
 
-Sangrí
 
-SangríEl tema aquí tratado se encuentra, sin duda alguna, en la atmósfera de nuestro tiempo. Sus signos pueden ser detectados: la orientación cada vez más acentuada de Heidegger hacia una filosofía de la Diferencia ontológica; el ejercicio del estructuralismo, basado en una distribución de caracteres diferenciales en un espacio de coexistencia; el arte de la novela contemporánea, que gira en torno de la diferencia y de la repetición, no sólo en su reflexión más abstracta sino también en sus técnicas efectivas; el descubrimiento, en toda clase de campos, de un poder propio de repetición, que sería tanto la del inconsciente como la del lenguaje y del arte. Todos estos signos pueden ser atribuidos a un anti-hegelianismo generalizado: la diferencia y la repetición ocuparon el lugar de lo idéntico y de lo negativo, de la identidad y de la contradicción.
+Desde la perspectiva de Deleuze, el pensamiento de la diferencia puede ser entendido desde un antihegelianismo generalizado, es decir, se comprende como reacción ante la hegemonía de la dialéctica. Si bien es posible indicar que existen otras corrientes con una presencia ineludible --así la fenomenología--, la noción de diferencia surge en oposición a cierta interpretación de Hegel. Esto resulta central, pues en gran medida la historia intelectual del pensamiento francés contemporáneo comienza con la lectura que realiza Alexander Kojève de la fenomenología hegeliana
 
-Sangrí
+\begin{quote}
+Si existe un signo del cambio de mentalidades --rebelión contra el neo-kantismo, eclipse del bergsonismo--, desde luego que es la vuelta firme de Hegel. Éste, proscrito por los neokantianos, de repente se vuelve, curiosamente, un autor de vanguardia citado con respeto en los círculos más avanzados. Este renacimiento parece deberse a dos razones principales. Una es el nuevo período de interés hacia el marxismo, tras la revolución rusa. {[}\ldots{]} La otra razón es la influencia del curso pronunciado por Alexandre Kojève en la Escuela Práctica de Altos Estudios a partir de 1933 y que se prolongará hasta 1939.
+\end{quote}
 
-SangríDesde la perspectiva de Deleuze, el pensamiento de la diferencia puede ser entendido desde un antihegelianismo generalizado, es decir, se comprende como reacción ante la hegemonía de la dialéctica. Si bien es posible indicar que existen otras corrientes con una presencia ineludible --así la fenomenología--, la noción de diferencia surge en oposición a cierta interpretación de Hegel. Esto resulta central, pues en gran medida la historia intelectual del pensamiento francés contemporáneo comienza con la lectura que realiza Alexander Kojève de la fenomenología hegeliana
+La relación con Kojève es central porque permite entender cómo se lee a Hegel en el pensamiento francés contemporáneo. Una interpretación en la cual se recupera la \emph{Fenomenología del espíritu}, apartándose de las lecturas que ven en el filósofo alemán sólo la hipóstasis de la razón. Esta lectura acentúa el origen irrazonable de lo razonable en relación con las filosofías de la existencia de principios de siglo, es decir, en proximidad con Husserl y Heidegger. Ante las lecturas panlogistas que destacan la identificación de lo real y lo racional, en el Hegel de Kojève el pensamiento es el movimiento de la razón hacia su otro, y por ello es una ampliación de la razón. Se trata de la \emph{negatividad} pensada en términos antropológicos, o mejor, de una antropología ontológica donde el hombre es el motor de la historia: «{[}\ldots{]} antropológico en el sentido que se trata ahí de ``existencia'', es decir, de deseo y de \emph{acción}. Hegel no es simplemente un intelectualista: sin la creación por la acción negadora no hay contemplación de lo dado». En esta perspectiva, la dialéctica expresa un humanismo, esto es, la dialéctica es ontológicamente humanista porque todo lo que tiene sentido se decide en la historia humana entendida como acción transformadora del hombre.
+\begin{quote}
+La lectura de Kojève será central al trabajar Hegel a la luz de la filosofía contemporánea, marcando así a toda una generación del pensamiento francés entre quienes se puede citar a Georges Bataille, Raymond Aron, Alexandre Koyré, Pierre Klossowski, Jacques Lacan, Maurice Merleau-Ponty, Eric Weil. La dialéctica goza de un importante prestigio en la Francia posterior a 1930. Quizá el mayor indicio de esta relevancia se encuentra en \emph{La crítica de la razón dialéctica} de Jean Paul Sartre, publicada en 1960, y donde el marxismo como razón dialéctica constituye el «horizonte irrebasable» de nuestro tiempo: «Nuestro tiempo será, pues, \emph{crítico} porque tratará de determinar la validez y los límites de la Razón dialéctica, lo que supone indicar las oposiciones y los lazos de esta Razón con la Razón analítica y positivista».
+\end{quote}
 
-Sangrí
-
-SangríSi existe un signo del cambio de mentalidades --rebelión contra el neo-kantismo, eclipse del bergsonismo--, desde luego que es la vuelta firme de Hegel. Éste, proscrito por los neokantianos, de repente se vuelve, curiosamente, un autor de vanguardia citado con respeto en los círculos más avanzados. Este renacimiento parece deberse a dos razones principales. Una es el nuevo período de interés hacia el marxismo, tras la revolución rusa. {[}\ldots{]} La otra razón es la influencia del curso pronunciado por Alexandre Kojève en la Escuela Práctica de Altos Estudios a partir de 1933 y que se prolongará hasta 1939.
-
-Sangrí
-
-SangríLa relación con Kojève es central porque permite entender cómo se lee a Hegel en el pensamiento francés contemporáneo. Una interpretación en la cual se recupera la \emph{Fenomenología del espíritu}, apartándose de las lecturas que ven en el filósofo alemán sólo la hipóstasis de la razón. Esta lectura acentúa el origen irrazonable de lo razonable en relación con las filosofías de la existencia de principios de siglo, es decir, en proximidad con Husserl y Heidegger. Ante las lecturas panlogistas que destacan la identificación de lo real y lo racional, en el Hegel de Kojève el pensamiento es el movimiento de la razón hacia su otro, y por ello es una ampliación de la razón. Se trata de la \emph{negatividad} pensada en términos antropológicos, o mejor, de una antropología ontológica donde el hombre es el motor de la historia: «{[}\ldots{]} antropológico en el sentido que se trata ahí de ``existencia'', es decir, de deseo y de \emph{acción}. Hegel no es simplemente un intelectualista: sin la creación por la acción negadora no hay contemplación de lo dado». En esta perspectiva, la dialéctica expresa un humanismo, esto es, la dialéctica es ontológicamente humanista porque todo lo que tiene sentido se decide en la historia humana entendida como acción transformadora del hombre.
-
-SangríLa lectura de Kojève será central al trabajar Hegel a la luz de la filosofía contemporánea, marcando así a toda una generación del pensamiento francés entre quienes se puede citar a Georges Bataille, Raymond Aron, Alexandre Koyré, Pierre Klossowski, Jacques Lacan, Maurice Merleau-Ponty, Eric Weil. La dialéctica goza de un importante prestigio en la Francia posterior a 1930. Quizá el mayor indicio de esta relevancia se encuentra en \emph{La crítica de la razón dialéctica} de Jean Paul Sartre, publicada en 1960, y donde el marxismo como razón dialéctica constituye el «horizonte irrebasable» de nuestro tiempo: «Nuestro tiempo será, pues, \emph{crítico} porque tratará de determinar la validez y los límites de la Razón dialéctica, lo que supone indicar las oposiciones y los lazos de esta Razón con la Razón analítica y positivista».
-
-SangríFrente a esta generación, ciertos autores que comienzan a escribir en las décadas del 50 y 60 se definen por su crítica a la dialéctica. Si bien existen diferencias de estilo, de acento, de interpretación, se comparte esta oposición al hegelianismo. Autores como Michel Foucault, Gilles Deleuze, Jacques Derrida, se caracterizan por la ruptura con Hegel. Señala Michel Foucault: «{[}\ldots{]} toda nuestra época, bien sea por la lógica o por la epistemología, bien sea por Marx o por Nietzsche, intenta escapar de Hegel». Esta ruptura con Hegel resulta central para pensar el contexto de emergencia del pensamiento de la diferencia. Pues vale recordar que la dialéctica hegeliana se construye como una lógica donde la alteridad tiene un lugar constitutivo. La negatividad nombra un movimiento de alienación, de un hacerse otro. La diferencia como \emph{mediación} es constitutiva del movimiento dialéctico. Al mismo tiempo, la identidad juega un rol central, pues la mediación se produce en vistas a una reconciliación final. En este marco es necesario destacar que la crítica a Hegel surge de la oposición entre identidad y diferencia, pues la cuestión es de qué modo la predominancia de la identidad reduciría la diferencia, es decir, la alteridad a la mismidad. Desde esta perspectiva, la dialéctica al considerar la diferencia como negación produciría un sometimiento de lo otro en una articulación superior, en una unidad idéntica superior jerárquicamente.
+Frente a esta generación, ciertos autores que comienzan a escribir en las décadas del 50 y 60 se definen por su crítica a la dialéctica. Si bien existen diferencias de estilo, de acento, de interpretación, se comparte esta oposición al hegelianismo. Autores como Michel Foucault, Gilles Deleuze, Jacques Derrida, se caracterizan por la ruptura con Hegel. Señala Michel Foucault: «{[}\ldots{]} toda nuestra época, bien sea por la lógica o por la epistemología, bien sea por Marx o por Nietzsche, intenta escapar de Hegel». Esta ruptura con Hegel resulta central para pensar el contexto de emergencia del pensamiento de la diferencia. Pues vale recordar que la dialéctica hegeliana se construye como una lógica donde la alteridad tiene un lugar constitutivo. La negatividad nombra un movimiento de alienación, de un hacerse otro. La diferencia como \emph{mediación} es constitutiva del movimiento dialéctico. Al mismo tiempo, la identidad juega un rol central, pues la mediación se produce en vistas a una reconciliación final. En este marco es necesario destacar que la crítica a Hegel surge de la oposición entre identidad y diferencia, pues la cuestión es de qué modo la predominancia de la identidad reduciría la diferencia, es decir, la alteridad a la mismidad. Desde esta perspectiva, la dialéctica al considerar la diferencia como negación produciría un sometimiento de lo otro en una articulación superior, en una unidad idéntica superior jerárquicamente.
 
 En este contexto de crítica a la dialéctica es posible ubicar dos de los indicios de época que Deleuze señala en su cita: la filosofía de la diferencia de Martin Heidegger y el estructuralismo de Ferdinand de Saussure. En Heidegger aparece explícitamente la confrontación entre dialéctica y diferencia en un escrito central para la época: \emph{Identidad y diferencia}. Publicado en el año 1957, el texto se compone de dos conferencias: «El principio de identidad» y «La constitución onto-teo-lógica de la metafísica». Si la diferencia ontológica es constitutiva del pensamiento heideggeriano, es su radicalización en una filosofía de la diferencia aquello que constituye un indicio central para el pensamiento francés de la década del 60. En el segundo de los artículos citados, texto de 1957 escrito como finalización de un curso sobre Hegel, Heidegger nomina su pensamiento desde la noción de diferencia oponiéndola a la dialéctica hegeliana:
 
